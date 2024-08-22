@@ -25,24 +25,11 @@ namespace prjTreeExample
             };
             tree.Root.Children.Add(new TreeNode<int>(){ Data=70, Parent = tree.Root });
 
-            //Console.WriteLine("Data of child " + tree.Root.Children[3].Data.ToString());
+            Console.WriteLine("Data of child " + tree.Root.Children[3].Data.ToString());
 
-
-            // WORK OUT BY YOURSELF
-            //Print all tree data
-            int count = tree.Root.Children.Count;
-            Console.WriteLine("Root: " + tree.Root.ToString());
-
-            for(int i = 0; i < count; i++)
-            {
-                Console.WriteLine("Child: " + tree.Root.Children[i].Data.ToString());
-                int c = tree.Root.Children[i].Children.Count;  //problem over here
-                for (int j = 0; j < c; j++)
-                {
-                    Console.WriteLine("\tInner child: " + tree.Root.Children[i].Children[j].Data.ToString());
-                    break;
-                }
-            }
+            //tree.PrintTree(tree.Root);
+            TreeNode<int> Node = tree.FindNode(tree.Root, 1);
+            tree.PrintTree(tree.Root, Node);
         }
     }
 }
